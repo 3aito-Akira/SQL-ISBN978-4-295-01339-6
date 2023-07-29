@@ -29,8 +29,8 @@ use Illuminate\Support\Facades\DB;
 //DB::insert("insert into causes values (9,'others')");
 //$result = DB::select("select balance from account_tests where balance < 99999999 order by balance asc limit 5 offset 10 ");
 //DB::insert("insert into abolished_account_models values ('0642191', '青木はるか', '1', 4551, '2023-03-13')");
-$result = DB::select("select accountNum, name from abolished_account_models union select accountNum, name from account_tests order by accountNum desc");
-//$result = DB::select("select name as 名前, balance as 金額 from abolished_account_models");
+//$result = DB::select("select accountNum as accout, name from abolished_account_models union select accountNum, name from account_tests order by accountNum desc");
+$result = DB::select("select name as 名前, balance as 金額 from abolished_account_models");
 dd($result);
 
 ?>
