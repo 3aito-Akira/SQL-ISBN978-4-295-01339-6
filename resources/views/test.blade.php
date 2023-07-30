@@ -22,25 +22,24 @@ use Illuminate\Support\Facades\DB;
 //$a26改 DB::select("select balance from account_tests order by balance asc, accountNum");
 //$a27改 DB::select("select date from account_tests order by date asc limit 10");
 //$a28改 DB::select("select balance from account_tests where balance < 99999999 order by balance asc limit 5 offset 10 ");
+//$a29改 DB::select("select accountNum as 'accout', name from abolished_account_models union select accountNum, name as '名前' from account_tests order by accout");
 //$a31改 DB::select("select accountNum from abolished_account_models intersect select accountNum from account_tests order by accountNum desc");
 //$a32改 DB::select("select accountNum, balance - balance % 1000 as 千円以上の残高 from account_tests where balance > 50000000");
 //$a33改 DB::insert("insert into account_tests values ('0622291', '加藤慶子', '1', 364000 + 3000, '2022-03-13')");
 //$a34改 DB::select("select accountNum, balance - balance % 1000 as '千円以上の残高' from account_tests where balance > 50000000");
-//$a35改 DB::select("select '別' || accountNum from account_tests where kind = '3' ");
+//$a35改 DB::insert("insert into account_tests values ('0622291', '加藤慶子', '1', 364000 + 3000, '2022-03-13')");
+//$a38改 DB::select("select '別' || accountNum from account_tests where kind = '3' ");
+//$a40改 DB::select("select accountNum, name, balance, case when balance < 100000 then 'A' when balance < 1000000 then 'B' when balance < 10000000 then 'C' else 'D' end as 'result' from account_tests" );
+//$a41改 DB::select("select replace(name,' ','') as 'result' from account_tests where length(name) > 10");
+//$a42改 DB::select("select name from account_tests where substring(name,1,3) like '%圭%' ");
+//$a46改 DB::select("select length(cast(balance as char)) from account_tests");
 
 //DB::insert("insert into causes values (9,'others')");
-//$result = DB::select("select balance from account_tests where balance < 99999999 order by balance asc limit 5 offset 10 ");
-//DB::insert("insert into abolished_account_models values ('0642191', '青木はるか', '1', 4551, '2023-03-13')");
-
-//$result = DB::select("select accountNum as 'accout', name from abolished_account_models union select accountNum, name as '名前' from account_tests order by accout");
-//$result = DB::select("select name as '名前', balance as '金額' from abolished_account_models");
-//DB::insert("insert into account_tests values ('0622291', '加藤慶子', '1', 364000 + 3000, '2022-03-13')");
-
-//$result = DB::select("select accountNum, name, balance, case when balance < 100000 then 'A' when balance < 1000000 then 'B' when balance < 10000000 then 'C' end from account_tests" );
+//DB::insert("insert into account_tests values ('0651233', '長野莉子', '1', 3333241, current_date)");
+//$result = DB::select("select cast(date as char) as '年月日' from account_tests");
+//$result = DB::select("select substring(accountNum,1,4) from account_tests");
+$result = DB::select("select substring((cast(date as char)),1,4) from account_tests");
 //$result = DB::select("select * from account_tests");
-//$result = DB::select("select name from account_tests where length(name) > 10");
-//$result = DB::select("select concat(name,accountNum) as 'result' from account_tests where length(name) > 10");
-$result = DB::select("select replace(name,'　','@') as 'result' from account_tests where length(name) > 10");
 
 dd($result);
 
