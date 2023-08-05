@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('causes', function (Blueprint $table) {
-            $table->integer('causeID')->primary();
+            $table->unsignedInteger('cause_id')->primary();
             $table->string('cause',20)->nullable(false)->unique();
+
         });
     }
 

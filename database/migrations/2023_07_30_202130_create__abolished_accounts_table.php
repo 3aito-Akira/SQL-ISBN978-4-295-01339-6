@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('abolished_account_models', function (Blueprint $table) {
-            $table->char('accountNum',7)->primary();
+        Schema::create('abolished_accounts', function (Blueprint $table) {
+            $table->char('account_id',7)->primary();
             $table->string('name', 40)->nullable(false);
             //1:ordinary 2:current 3:separate
             $table->char('kind', 1)->nullable(false);
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('abolished_account_models');
+        Schema::dropIfExists('abolished_accounts');
     }
 };

@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\AbolishedAccountModel>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\AbolishedAccount>
  */
-class AbolishedAccountModelFactory extends Factory
+class AbolishedAccountFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -22,7 +22,7 @@ class AbolishedAccountModelFactory extends Factory
             'kind' =>  fake()->numberBetween($min=1,$max=3),
             'balance' =>  fake()->numberBetween($min=1,$max=99999999),
             'date' =>  fake()->date(),
-            'accountNum' => str_pad($accountNum, 7, 0, STR_PAD_LEFT),
+            'account_id' => str_pad($accountNum, 7, 0, STR_PAD_LEFT),
         ];
     }
 }

@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('account_tests', function (Blueprint $table) {
-            $table->char('accountNum',7)->primary();
+        Schema::create('accounts', function (Blueprint $table) {
+            $table->char('account_id',7)->primary();
             $table->string('name', 40)->nullable(false);
             //1:ordinary 2:current 3:separate
             $table->char('kind', 1)->nullable(false);
             $table->unsignedInteger('balance')->nullable(false);
-            $table->date('date');
+            $table->date('date')->nullable(true);
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('account_tests');
+        Schema::dropIfExists('accounts');
     }
 };

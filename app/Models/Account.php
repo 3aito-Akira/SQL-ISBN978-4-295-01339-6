@@ -5,16 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cause extends Model
+class Account extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'cause_id';
+    protected $primaryKey = 'account_id';
 
-    //public $incrementing = false;
+    public $incrementing = false;
 
-    //protected $keyType = 'string';
+    protected $keyType = 'string';
 
     public $timestamps = false;
-
 }
